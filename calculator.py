@@ -23,7 +23,7 @@ def main():
     while True:
         # This will take input from the user
         choice = input("Enter choice(1 or 2 or 3 or 4): ")
-        # It will check here 
+        # Now it'll check here 
         if choice in ['1', '2', '3', '4']:
             try:
                 num1 = float(input("Enter first number: "))
