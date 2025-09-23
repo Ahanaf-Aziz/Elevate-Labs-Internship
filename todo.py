@@ -46,7 +46,6 @@ def main():
         print("3. Remove Task")
         print("4. Exit")
         choice = input("Choose an option (1-4): ")
-        
         if choice == '1':
             view_tasks(tasks)
         elif choice == '2':
