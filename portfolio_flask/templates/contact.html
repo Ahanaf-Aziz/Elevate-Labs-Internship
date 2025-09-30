@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Contact Me</h2>
+    <form method="POST" action="{{ url_for('contact') }}">
+        <label>Name:</label><br>
+        <input type="text" name="name" required><br><br>
+        <label>Email:</label><br>
+        <input type="email" name="email" required><br><br>
+        <label>Message:</label><br>
+        <textarea name="message" required></textarea><br><br>
+        <button type="submit">Send</button>
+    </form>
+</body>
+</html>
