@@ -1,0 +1,139 @@
+# 📰 Fake News Detector
+
+A machine learning application that detects whether news headlines are real or fake using TF-IDF vectorization and Logistic Regression.
+
+## Features
+
+✅ **Single Headline Analysis** - Check individual headlines with confidence scores
+✅ **Batch Processing** - Upload CSV files to analyze multiple headlines at once
+✅ **Confidence Metrics** - View probability breakdown for each prediction
+✅ **Export Results** - Download predictions as CSV for further analysis
+✅ **Interactive UI** - Built with Streamlit for easy use
+
+## Project Structure
+
+\`\`\`
+fake-news-detector/
+├── app.py                      # Main Streamlit application
+├── requirements.txt            # Python dependencies
+├── setup.sh                    # Setup script
+├── README.md                   # This file
+├── scripts/
+│   ├── prepare_dataset.py     # Data preparation and model training
+│   └── train_model.py         # Model metrics generation
+└── models/
+    ├── model.pkl              # Trained Logistic Regression model
+    ├── tfidf.pkl              # TF-IDF vectorizer
+    └── metrics.txt            # Model performance metrics
+\`\`\`
+
+## Installation
+
+### Option 1: Automated Setup
+\`\`\`bash
+bash setup.sh
+\`\`\`
+
+### Option 2: Manual Setup
+\`\`\`bash
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Train model
+python -c "from scripts.prepare_dataset import *"
+\`\`\`
+
+## Usage
+
+### Run the Streamlit App
+\`\`\`bash
+streamlit run app.py
+\`\`\`
+
+The app will open in your browser at `http://localhost:8501`
+
+### Single Headline Prediction
+1. Go to the "Single Prediction" tab
+2. Enter a news headline
+3. Click "Analyze Headline"
+4. View the prediction and confidence score
+
+### Batch Processing
+1. Go to the "Batch Upload" tab
+2. Upload a CSV file with a 'headline', 'text', 'title', or 'news' column
+3. Click "Analyze All Headlines"
+4. Download results as CSV
+
+## Model Details
+
+**Algorithm**: Logistic Regression
+**Vectorization**: TF-IDF (Term Frequency-Inverse Document Frequency)
+- Max features: 5000
+- N-gram range: (1, 2)
+- Stop words: English
+
+**Training Data**: Real vs Fake news headlines
+**Test/Train Split**: 80/20
+
+## Performance Metrics
+
+The model's performance is evaluated using:
+- **Accuracy**: Overall correctness of predictions
+- **Precision**: Accuracy of fake news predictions
+- **Recall**: Coverage of actual fake news
+- **F1-Score**: Balanced measure of precision and recall
+
+View detailed metrics in `models/metrics.txt` after training.
+
+## CSV Format
+
+For batch processing, your CSV should contain one of these columns:
+- `headline`
+- `text`
+- `title`
+- `news`
+
+Example:
+\`\`\`csv
+headline
+"Breaking: Scientists discover new species"
+"Shocking: Aliens spotted in major city"
+"Study shows benefits of exercise"
+\`\`\`
+
+## Limitations
+
+⚠️ This is a demonstration model with the following limitations:
+- Trained on limited sample data (use real datasets for production)
+- May struggle with ambiguous or sarcastic headlines
+- Doesn't account for real-time news trends
+- Should be used as a tool to assist, not replace human judgment
+
+## Improving the Model
+
+To improve accuracy:
+1. Use larger, more diverse datasets (e.g., Kaggle Fake News Dataset)
+2. Experiment with different algorithms (SVM, Random Forest, Neural Networks)
+3. Add more features (source credibility, author history, etc.)
+4. Implement ensemble methods
+5. Use pre-trained language models (BERT, GPT)
+
+## Technologies Used
+
+- **Python 3.8+**
+- **Streamlit** - Web interface
+- **scikit-learn** - Machine learning
+- **pandas** - Data manipulation
+- **numpy** - Numerical computing
+
+## License
+
+MIT License - Feel free to use and modify
+
+## Support
+
+For issues or questions, please open an issue in the repository.
