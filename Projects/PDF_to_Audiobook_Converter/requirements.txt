@@ -1,0 +1,5 @@
+PyMuPDF==1.23.8
+pyttsx3==2.90
+gTTS==2.4.0
+pygame==2.5.2
+pydub==0.25.1
